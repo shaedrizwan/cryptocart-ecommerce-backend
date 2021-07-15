@@ -21,7 +21,7 @@ router.use(checkLogin)
 router.route('/login')
     .post((req,res)=>{
         const user = req.user
-        const token = jwt.sign({userId:user.username},process.env.TOKEN_SECRET,{expiresIn:'24h'})
+        const token = jwt.sign({userId:user._id},process.env.TOKEN_SECRET,{expiresIn:'24h'})
         res.json({success:true,message:"Login successful",user:user.username,token})
     })
 

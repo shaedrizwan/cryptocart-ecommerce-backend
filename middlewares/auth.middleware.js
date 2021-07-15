@@ -12,6 +12,7 @@ const checkLogin = async(req,res,next) =>{
         }
         if(user){
             isValidPassword = await bcrypt.compare(password,user.password)
+            console.log("password:",isValidPassword)
             if(isValidPassword){
                 req.user = user
                 return next()

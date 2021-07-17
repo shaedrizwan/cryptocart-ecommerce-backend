@@ -4,6 +4,11 @@ const bcrypt = require('bcryptjs')
 
 const Schema = mongoose.Schema
 
+const cartSchema = new Schema({
+    product:{type:Schema.Types.ObjectId, ref:Product},
+    quantity: Number
+})
+
 const userSchema = new Schema({
     firstname:{
         type:String,
@@ -27,7 +32,7 @@ const userSchema = new Schema({
         required:["Enter the password"]
     },
     wishlist:[{type:Schema.Types.ObjectId, ref:Product}],
-    cart:[{type:Schema.Types.ObjectId, ref:Product}]
+    cart:[cartSchema]
 })
 
 userSchema.pre('save',async function(next){

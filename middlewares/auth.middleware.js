@@ -17,7 +17,7 @@ const checkLogin = async(req,res,next) =>{
                 return next()
              }
              else{
-                 return res.status(403).json({success:false,message:"Authentication failed"})
+                 return res.status(401).json({success:false,message:"Authentication failed"})
              }
         }
     }

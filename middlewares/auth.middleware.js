@@ -34,7 +34,7 @@ const verifyToken = (req,res,next) =>{
         req.user = decoded.userId
         return next()
     }catch{
-        return res.status(403).json({success:false,message:"Unauthorized Access"})
+        return res.status(401).json({success:false,message:"Unauthorized Access"})
     }
 }
 

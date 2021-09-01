@@ -14,7 +14,7 @@ router.route('/signup')
             user.password = hashedPassword
             const newUser = new User(user)
             const addUser = await newUser.save()
-            res.json({success:true,addUser})
+            res.json({success:true,username:addUser.username})
         }catch(err){
             res.json({success:false,error:err.message})
         }
